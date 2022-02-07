@@ -1,4 +1,22 @@
 //GLOBAL VARIABLE CONNECTIONS
+var userInput = document.getElementById("user-input");
+var searchBtn = document.getElementById("search-btn");
+
+var recentBtn = document.getElementById("recent-btn");
+var recent1 = document.getElementById("1");
+var recent2 = document.getElementById("2");
+var recent3 = document.getElementById("3");
+var recent4 = document.getElementById("4");
+var recent5 = document.getElementById("5");
+
+var todayCity = document.getElementById("today-city");
+var date = document.getElementById("date");
+var weatherIcon = document.getElementById("weather-icon");
+
+var temp = document.getElementById("temp");
+var wind = document.getElementById("wind");
+var humidity = document.getElementById("humidity");
+var index = document.getElementById("index");
 
 //SEARCH BUTTON RETURN API RESULTS
 //FUNCTION EVENT CLICK
@@ -24,9 +42,9 @@
 
 //TODAY RESULTS
 //FUNCTION TO ADD TODAY RESULTS
-//A.INFO - CITY NAME, DATE, ICON OF CONDITIONS, TEMP, HUMIDITY, 
+//A.INFO - CITY NAME, DATE, ICON OF CONDITIONS, TEMP, HUMIDITY,
 //WIND SPEED, COLOR CODED UV INDEX (FAVORABLE, MODERATE, SEVERE)
 
 //5-DAY RESULTS
 //FUNCTION TO ADD 5 DAY RESULTS
-//A. INFO - DATE, CONDITIONS ICON, TEMP, WIND SPEED, HUMIDITY 
+//A. INFO - DATE, CONDITIONS ICON, TEMP, WIND SPEED, HUMIDITY

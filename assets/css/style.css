@@ -44,9 +44,11 @@ h4 {
 
 .five-results {
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .day {
+  padding: 5px;
   background-color: rgb(48, 48, 128);
   color: white;
 }
