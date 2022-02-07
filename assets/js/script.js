@@ -20,10 +20,40 @@ var index = document.getElementById("index");
 
 //SEARCH BUTTON RETURN API RESULTS
 //FUNCTION EVENT CLICK
-//1.READ VALUE FROM INPUT
+function searchSubmit(event) {
+  event.preventDefault();
+
+  userInput = document.querySelector("#user-input").value;
+
+  if (!userInput) {
+    console.error("Enter city!");
+    return;
+  }
+
+  searchApi(searchInputVal);
+}
+
+searchBtn.addEventListener("submit", searchSubmit);
+
+//1.READ VALUE FROM INPUT - convert city format to lat&long?
+
 //2.CREATE URL FOR FETCH
+function searchApi(localQueryUrl) {
+  localQueryUrl =
+    "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={minutely,alerts}&appid={API key}";
+}
 //3.FETCH RESULTS
-//4.CALL FUNCTION TO DISPLAY RESULTS
+fetch(localQueryUrl)
+  .then(function (response) {
+    return response.json();
+  })
+
+  .then(function (localResult) {
+    //4.CALL FUNCTION TO DISPLAY RESULTS
+    userInput.textContent = localResult.search.query;
+    recentBtn.textContent = localResult.search.query;
+    console.log(localResult);
+  });
 
 //FUNCTION FOR RESULTS DISPLAY
 //1.CALL FUNCTION ADD RECENT SEARCH

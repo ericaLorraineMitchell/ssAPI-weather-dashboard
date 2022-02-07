@@ -19,39 +19,43 @@
 
     <!-- SEARCH FORM AND BUTTON-->
     <div class="container">
-      <div class="row search-section" id="search-section">
-        <h4>Search for City:</h4>
-        <input
-          type="text"
-          class="user-input"
-          id="user-input"
-          placeholder="Example: Atlanta"
-        />
-        <br />
-        <button class="search-btn" id="search-btn">Search</button>
-        <hr />
-      </div>
+      <div class="row">
+        <aside class="col-4">
+          <div class="search-section" id="search-section">
+            <h4>Search for City:</h4>
+            <input
+              type="text"
+              class="user-input"
+              id="user-input"
+              placeholder="Example: Atlanta"
+            />
+            <br />
+            <button class="search-btn" id="search-btn">Search</button>
+            <hr />
+          </div>
 
-      <!-- RECENT SEARCH -->
-      <div class="row recent-section">
-        <button class="recent-btn" id="1">Test city</button>
-        <button class="recent-btn" id="2"></button>
-        <button class="recent-btn" id="3"></button>
-        <button class="recent-btn" id="4"></button>
-        <button class="recent-btn" id="5"></button>
-      </div>
+          <!-- RECENT SEARCH -->
+          <div class="recent-section">
+            <button class="recent-btn" id="1">Test city</button>
+            <button class="recent-btn" id="2"></button>
+            <button class="recent-btn" id="3"></button>
+            <button class="recent-btn" id="4"></button>
+            <button class="recent-btn" id="5"></button>
+          </div>
+        </aside>
 
-      <!-- TODAY RESULTS -->
-      <div class="row today-results" id="today-results">
-        <h4 class="today-city" id="today-city">
-          Recent City
-          <span class="date" id="date">DATE</span>
-          <span class="weather-icon" id="weather-icon">ICON</span>
-        </h4>
-        <p class="temp" id="temp">Temp:</p>
-        <p class="wind" id="wind">Wind:</p>
-        <p class="humidity" id="humidity">Humidity:</p>
-        <p class="index" id="index">UV Index:</p>
+        <!-- TODAY RESULTS -->
+        <div class="today-results col-7" id="today-results">
+          <h4 class="today-city" id="today-city">
+            Recent City
+            <span class="date" id="date">DATE</span>
+            <span class="weather-icon" id="weather-icon">ICON</span>
+          </h4>
+          <p class="temp" id="temp">Temp:</p>
+          <p class="wind" id="wind">Wind:</p>
+          <p class="humidity" id="humidity">Humidity:</p>
+          <p class="index" id="index">UV Index:</p>
+        </div>
       </div>
 
       <!-- 5-DAY RESULT COLUMNS -->

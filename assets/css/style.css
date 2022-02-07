@@ -22,15 +22,6 @@ h4 {
   color: white;
 }
 
-.container-fluid {
-  display: flex;
-  /* display: inline-flex; */
-}
-
-.row {
-  flex-flow: column wrap;
-}
-
 .recent-btn {
   min-width: fit-content;
   margin: 20px;
@@ -44,7 +35,7 @@ h4 {
 
 .five-results {
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .day {
