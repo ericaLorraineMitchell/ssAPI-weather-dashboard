@@ -1,0 +1,52 @@
+* {
+  font-family: "Arial", "Helvetica", "sans-serif";
+  margin: 5px;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 15px;
+  background-color: rgb(99, 199, 238);
+}
+
+.user-input {
+  border-radius: 5px;
+}
+.search-btn {
+  border-radius: 5px;
+  background-color: rgb(79, 147, 224);
+  color: white;
+}
+
+.container-fluid {
+  display: flex;
+  /* display: inline-flex; */
+}
+
+.row {
+  flex-flow: column wrap;
+}
+
+.recent-btn {
+  min-width: fit-content;
+  margin: 20px;
+  /* justify-content: space-between; */
+  border-radius: 5px;
+}
+
+.today-results {
+  border: solid 3px black;
+}
+
+.five-results {
+  flex-direction: row;
+}
+
+.day {
+  background-color: rgb(48, 48, 128);
+  color: white;
+}

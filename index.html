@@ -1,24 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <h1>Weather Report</h1>
+    </header>
 
-<!-- HEADER -->
+    <!-- SEARCH FORM AND BUTTON-->
+    <div class="container">
+      <div class="row search-section" id="search-section">
+        <h4>Search for City:</h4>
+        <input
+          type="text"
+          class="user-input"
+          id="user-input"
+          placeholder="Example: Atlanta"
+        />
+        <br />
+        <button class="search-btn" id="search-btn">Search</button>
+        <hr />
+      </div>
 
-<!-- SEARCH FORM AND BUTTON-->
+      <!-- RECENT SEARCH -->
+      <div class="row recent-section">
+        <button class="recent-btn" id="recent1">Test city</button>
+        <button class="recent-btn" id="recent2"></button>
+        <button class="recent-btn" id="recent3"></button>
+        <button class="recent-btn" id="recent4"></button>
+        <button class="recent-btn" id="recent5"></button>
+      </div>
 
-<!-- RECENT SEARCH -->
+      <!-- TODAY RESULTS -->
+      <div class="row today-results" id="today-results">
+        <h4 class="today-city" id="today-city">
+          Recent City
+          <span class="date" id="date">DATE</span>
+          <span class="weather-icon" id="weather-icon">ICON</span>
+        </h4>
+        <p class="temp" id="temp">Temp:</p>
+        <p class="wind" id="wind">Wind:</p>
+        <p class="humidity" id="humidity">Humidity:</p>
+        <p class="index" id="index">UV Index:</p>
+      </div>
 
-<!-- TODAY RESULTS -->
-
-<!-- 5-DAY RESULT COLUMNS -->
-
-</body>
-<script type="text/javascript" src="./assets/js/script.js"></script>
+      <!-- 5-DAY RESULT COLUMNS -->
+      <div class="row five-results" id="five-results">
+        <h4 class="today-city" id="today-city">Five Day Forecast:</h4>
+        <div class="day col-5" id="day1">
+          <p class="date" id="date">DATE</p>
+          <p class="weather-icon" id="weather-icon">ICON</p>
+          <p class="temp" id="temp">Temp:</p>
+          <p class="wind" id="wind">Wind:</p>
+          <p class="humidity" id="humidity">Humidity:</p>
+        </div>
+        <div class="day col-5" id="day2">
+          <p class="date" id="date">DATE</p>
+          <p class="weather-icon" id="weather-icon">ICON</p>
+          <p class="temp" id="temp">Temp:</p>
+          <p class="wind" id="wind">Wind:</p>
+          <p class="humidity" id="humidity">Humidity:</p>
+        </div>
+        <div class="day col-5" id="day3">
+          <p class="date" id="date">DATE</p>
+          <p class="weather-icon" id="weather-icon">ICON</p>
+          <p class="temp" id="temp">Temp:</p>
+          <p class="wind" id="wind">Wind:</p>
+          <p class="humidity" id="humidity">Humidity:</p>
+        </div>
+        <div class="day col-5" id="day4">
+          <p class="date" id="date">DATE</p>
+          <p class="weather-icon" id="weather-icon">ICON</p>
+          <p class="temp" id="temp">Temp:</p>
+          <p class="wind" id="wind">Wind:</p>
+          <p class="humidity" id="humidity">Humidity:</p>
+        </div>
+        <div class="day col-5" id="day5">
+          <p class="date" id="date">DATE</p>
+          <p class="weather-icon" id="weather-icon">ICON</p>
+          <p class="temp" id="temp">Temp:</p>
+          <p class="wind" id="wind">Wind:</p>
+          <p class="humidity" id="humidity">Humidity:</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./assets/js/script.js"></script>
 </html>
