@@ -23,9 +23,7 @@ h4 {
 }
 
 .recent-btn {
-  min-width: fit-content;
   margin: 20px;
-  /* justify-content: space-between; */
   border-radius: 5px;
 }
 

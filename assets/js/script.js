@@ -1,5 +1,5 @@
 //GLOBAL VARIABLE CONNECTIONS
-var userInput = document.getElementById("user-input");
+
 var searchBtn = document.getElementById("search-btn");
 
 var recentBtn = document.getElementById("recent-btn");
@@ -18,42 +18,63 @@ var wind = document.getElementById("wind");
 var humidity = document.getElementById("humidity");
 var index = document.getElementById("index");
 
+var APIKey = "a45fd2e2b53fbbb2b9f139e7fb6f0df4";
+
 //SEARCH BUTTON RETURN API RESULTS
 //FUNCTION EVENT CLICK
 function searchSubmit(event) {
   event.preventDefault();
 
-  userInput = document.querySelector("#user-input").value;
+  var userInput = document.querySelector("#user-input").value;
 
   if (!userInput) {
     console.error("Enter city!");
     return;
   }
 
-  searchApi(searchInputVal);
+  searchApi(userInput);
 }
 
-searchBtn.addEventListener("submit", searchSubmit);
+searchBtn.addEventListener("click", searchSubmit);
 
-//1.READ VALUE FROM INPUT - convert city format to lat&long?
+//1.READ VALUE FROM INPUT - convert city format to lat&long
 
 //2.CREATE URL FOR FETCH
-function searchApi(localQueryUrl) {
-  localQueryUrl =
-    "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={minutely,alerts}&appid={API key}";
-}
-//3.FETCH RESULTS
-fetch(localQueryUrl)
-  .then(function (response) {
-    return response.json();
-  })
+function searchApi(userInput) {
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    userInput +
+    "&appid=a45fd2e2b53fbbb2b9f139e7fb6f0df4";
+  console.log(queryURL);
 
-  .then(function (localResult) {
-    //4.CALL FUNCTION TO DISPLAY RESULTS
-    userInput.textContent = localResult.search.query;
-    recentBtn.textContent = localResult.search.query;
-    console.log(localResult);
-  });
+  //3.FETCH RESULTS
+  fetch(queryURL)
+    .then(function (response) {
+      return response.json();
+    })
+
+    .then(function (localResult) {
+      //4.CALL FUNCTION TO DISPLAY RESULTS
+      console.log(localResult);
+      var coords = localResult.coord;
+      console.log(coords);
+      newAPI(coords.lon, coords.lat);
+    });
+}
+
+function newAPI(lon, lat) {
+  var newURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+  console.log(newURL);
+
+  fetch(newURL)
+    .then(function (response) {
+      return response.json();
+    })
+
+    .then((data) => {
+      console.log(data);
+    });
+}
 
 //FUNCTION FOR RESULTS DISPLAY
 //1.CALL FUNCTION ADD RECENT SEARCH
