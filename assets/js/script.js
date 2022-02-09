@@ -45,16 +45,16 @@ function searchApi(userInput) {
     "&appid=a45fd2e2b53fbbb2b9f139e7fb6f0df4";
   console.log(queryURL);
 
-//FETCH RESULTS
+  //FETCH RESULTS
   fetch(queryURL)
     .then(function (response) {
       return response.json();
     })
 
-//CALL FUNCTION FOR RESULTS
+    //CALL FUNCTION FOR RESULTS
     .then(function (localResult) {
       console.log(localResult);
-//DISPLAY CITY NAME DATA 
+      //DISPLAY CITY NAME DATA
       var cityName = localResult.name;
       todayCity.textContent = cityName;
 
@@ -67,7 +67,7 @@ function searchApi(userInput) {
 
 //CREATE URL FOR FETCH -ONE CALL API GIVES REMAINING DATA
 function newAPI(lon, lat) {
-  var newURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+  var newURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${APIKey}`;
   console.log(newURL);
 
   //FETCH RESULTS
@@ -78,18 +78,23 @@ function newAPI(lon, lat) {
 
     .then((data) => {
       console.log(data);
+      console.log(data.daily);
+      console.log(data.daily[0].dt);
+
+      //DISPLAY DATE DATA
+      var dateValue = data.daily[0].dt;
+      var dateString = moment.unix(dateValue).format("MM/DD/YYYY");
+      console.log(dateString);
+      date.innerText = dateString;
     });
 }
 
 //FUNCTION FOR RESULTS DISPLAY
 //1.CALL FUNCTION ADD RECENT SEARCH
 
-// for (var i = 0; i < localResult.length; i++)
-
 // var temp = Math.round(weatherData.main.temp)  //temp nested inside main object
-
-
 // p.textContent = temp
+
 //2.CALL FUNCTION ADD TODAYS RESULTS
 //3.CALL FUNCTION ADD 5 DAY RESULTS
 //4. CLEAR INPUT BOX
