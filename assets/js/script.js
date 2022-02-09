@@ -9,7 +9,7 @@ var recent3 = document.getElementById("3");
 var recent4 = document.getElementById("4");
 var recent5 = document.getElementById("5");
 
-var todayCity = document.getElementById("today-city");
+var city = document.getElementById("city");
 var date = document.getElementById("date");
 var weatherIcon = document.getElementById("weather-icon");
 
@@ -56,7 +56,7 @@ function searchApi(userInput) {
       console.log(localResult);
       //DISPLAY CITY NAME DATA
       var cityName = localResult.name;
-      todayCity.textContent = cityName;
+      city.textContent = cityName;
 
       var coords = localResult.coord;
       console.log(coords);
@@ -86,6 +86,11 @@ function newAPI(lon, lat) {
       var dateString = moment.unix(dateValue).format("MM/DD/YYYY");
       console.log(dateString);
       date.innerText = dateString;
+      console.log(date);
+
+      //DISPLAY WIND SPEED DATA
+      var windSpeed = data.daily[0].wind_speed;
+      wind.textContent = "Wind: " + windSpeed;
     });
 }
 
