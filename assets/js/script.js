@@ -80,6 +80,9 @@ function newAPI(lon, lat) {
       console.log(data);
       console.log(data.daily);
       console.log(data.daily[0].dt);
+      // for (i = 1; i < 6; i++) -attempted fors with removing index positions
+      // for (i = 0; data.daily[i]; i++)
+      // for (i = 1; data.daily < 5; i++) {
 
       //TODAY RESULTS
       //DISPLAY DATE DATA
@@ -88,9 +91,11 @@ function newAPI(lon, lat) {
       console.log(dateString);
       date.innerText = dateString;
 
-      //DISPLAY ICON -api provided or manual conditional?
+      //DISPLAY ICON -set parameters? change to image in html?
       var dayIcon = data.daily[0].weather[0].icon;
-      weatherIcon.textContent = dayIcon;
+      var iconURL = "http://openweathermap.org/img/w/" + dayIcon + ".png";
+      console.log(iconURL);
+      weatherIcon.img = iconURL;
 
       //DISPLAY TEMP DATA
       var dayTemp = Math.round(data.daily[0].temp.day);
@@ -115,8 +120,48 @@ function newAPI(lon, lat) {
       } else {
         color = "red";
       }
+
+      //5-DAY RESULTS
+      //A. INFO - DATE, CONDITIONS ICON, TEMP, WIND SPEED, HUMIDITY
+      // var dailyData = data.daily;
+      // console.log(dailyData);
+      // dailyData.forEach((i) => console.log(i));
+      // dailyData.forEach((wind_speed) => console.log(wind_speed));
+
+      // for (i = 1; i < 6; i++) {
+      //   console.log(dailyData[i]);
+      //   console.log(dailyData[i].humidity);
+
+      // var dateValue = dailyData.dt;
+      // var dateString = moment.unix(dateValue).format("MM/DD/YYYY");
+      // console.log(dateString);
+      // date.innerText = dateString;
+      // }
     });
 }
+
+//   var dateValue = dailyData.dt;
+//   var dateString = moment.unix(dateValue).format("MM/DD/YYYY");
+//   console.log(dateString);
+//   date.innerText = dateString;
+
+//   // //DISPLAY ICON -set parameters? change to image in html?
+//   // var dayIcon = dailyData.weather.icon;
+//   // var iconURL = "http://openweathermap.org/img/w/" + dayIcon + ".png";
+//   // console.log(iconURL);
+//   // weatherIcon.img = iconURL;
+
+//   //DISPLAY TEMP DATA
+//   var dayTemp = Math.round(data.daily.temp.day);
+//   temp.textContent = "Temp: " + dayTemp + " \u00B0F";
+// }
+// //DISPLAY WIND SPEED DATA
+// var windSpeed = Math.round(data.daily.wind_speed);
+// wind.textContent = "Wind: " + windSpeed + "MPH";
+
+// //DISPLAY HUMIDITY DATA
+// var dataHumidity = Math.round(data.daily.humidity);
+// humidity.textContent = "Humidity: " + dataHumidity + "%";
 
 //RECENT SEARCH BUTTONS
 //FUNCTION ADD SEARCH TO RESULTS
@@ -126,12 +171,3 @@ function newAPI(lon, lat) {
 //FUNCTION EVENT CLICK RECENT RESULTS
 //1.READ DATA ATTR
 //2.CALL TO DISPLAY IN TODAY & 5 DAY RESULTS
-
-//TODAY RESULTS
-//FUNCTION TO ADD TODAY RESULTS
-//A.INFO - CITY NAME, DATE, ICON OF CONDITIONS, TEMP, HUMIDITY,
-//WIND SPEED, COLOR CODED UV INDEX (FAVORABLE, MODERATE, SEVERE)
-
-//5-DAY RESULTS
-//FUNCTION TO ADD 5 DAY RESULTS
-//A. INFO - DATE, CONDITIONS ICON, TEMP, WIND SPEED, HUMIDITY
