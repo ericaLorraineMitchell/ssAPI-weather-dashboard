@@ -81,28 +81,42 @@ function newAPI(lon, lat) {
       console.log(data.daily);
       console.log(data.daily[0].dt);
 
+      //TODAY RESULTS
       //DISPLAY DATE DATA
       var dateValue = data.daily[0].dt;
       var dateString = moment.unix(dateValue).format("MM/DD/YYYY");
       console.log(dateString);
       date.innerText = dateString;
-      console.log(date);
+
+      //DISPLAY ICON -api provided or manual conditional?
+      var dayIcon = data.daily[0].weather[0].icon;
+      weatherIcon.textContent = dayIcon;
+
+      //DISPLAY TEMP DATA
+      var dayTemp = Math.round(data.daily[0].temp.day);
+      temp.textContent = "Temp: " + dayTemp + " \u00B0F";
 
       //DISPLAY WIND SPEED DATA
-      var windSpeed = data.daily[0].wind_speed;
-      wind.textContent = "Wind: " + windSpeed;
+      var windSpeed = Math.round(data.daily[0].wind_speed);
+      wind.textContent = "Wind: " + windSpeed + "MPH";
+
+      //DISPLAY HUMIDITY DATA
+      var dataHumidity = Math.round(data.daily[0].humidity);
+      humidity.textContent = "Humidity: " + dataHumidity + "%";
+
+      //DISPLAY UV INDEX DATA
+      var dataUVI = data.daily[0].uvi;
+      index.textContent = "UV Index: " + dataUVI;
+      //INDEX ICON CONDITIONAL <=2 green, 3-5 yellow, >6 red
+      if (dataUVI <= 2) {
+        color = "green";
+      } else if (dataUVI >= 2 && dataUVI <= 5) {
+        color = "yellow";
+      } else {
+        color = "red";
+      }
     });
 }
-
-//FUNCTION FOR RESULTS DISPLAY
-//1.CALL FUNCTION ADD RECENT SEARCH
-
-// var temp = Math.round(weatherData.main.temp)  //temp nested inside main object
-// p.textContent = temp
-
-//2.CALL FUNCTION ADD TODAYS RESULTS
-//3.CALL FUNCTION ADD 5 DAY RESULTS
-//4. CLEAR INPUT BOX
 
 //RECENT SEARCH BUTTONS
 //FUNCTION ADD SEARCH TO RESULTS
