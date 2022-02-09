@@ -29,7 +29,7 @@ function searchSubmit(event) {
 
   if (!userInput) {
     console.error("Enter city!");
-    return;
+    alert("ENTER CITY!");
   }
 
   searchApi(userInput);
@@ -37,9 +37,7 @@ function searchSubmit(event) {
 
 searchBtn.addEventListener("click", searchSubmit);
 
-//1.READ VALUE FROM INPUT - convert city format to lat&long
-
-//2.CREATE URL FOR FETCH
+//CREATE URL FOR FETCH -CURRENT API READS CITY NAME & GIVES LAT&LON
 function searchApi(userInput) {
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -47,25 +45,32 @@ function searchApi(userInput) {
     "&appid=a45fd2e2b53fbbb2b9f139e7fb6f0df4";
   console.log(queryURL);
 
-  //3.FETCH RESULTS
+//FETCH RESULTS
   fetch(queryURL)
     .then(function (response) {
       return response.json();
     })
 
+//CALL FUNCTION FOR RESULTS
     .then(function (localResult) {
-      //4.CALL FUNCTION TO DISPLAY RESULTS
       console.log(localResult);
+//DISPLAY CITY NAME DATA 
+      var cityName = localResult.name;
+      todayCity.textContent = cityName;
+
       var coords = localResult.coord;
       console.log(coords);
+      //PUT LAT&LON VALUE FROM FIRST API INTO NEW ONE CALL API
       newAPI(coords.lon, coords.lat);
     });
 }
 
+//CREATE URL FOR FETCH -ONE CALL API GIVES REMAINING DATA
 function newAPI(lon, lat) {
   var newURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
   console.log(newURL);
 
+  //FETCH RESULTS
   fetch(newURL)
     .then(function (response) {
       return response.json();
@@ -78,6 +83,13 @@ function newAPI(lon, lat) {
 
 //FUNCTION FOR RESULTS DISPLAY
 //1.CALL FUNCTION ADD RECENT SEARCH
+
+// for (var i = 0; i < localResult.length; i++)
+
+// var temp = Math.round(weatherData.main.temp)  //temp nested inside main object
+
+
+// p.textContent = temp
 //2.CALL FUNCTION ADD TODAYS RESULTS
 //3.CALL FUNCTION ADD 5 DAY RESULTS
 //4. CLEAR INPUT BOX
